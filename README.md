@@ -1,2 +1,3 @@
-# metakims 디자인 시스템 (공개용)
+# metakims design system
 
+https://www.npmjs.com/package/@metakims/kuix
