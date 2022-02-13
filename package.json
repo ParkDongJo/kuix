@@ -1,22 +1,22 @@
 {
-  "name": "kuix",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+  "name": "kimsui",
+  "version": "0.2.0",
+  "description": "metakims design system",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "author": "metakims <dev.charles.dojo@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/ParkDongJo/kimsui/issues",
+    "email": "dev.charles.dojo@gmail.com"
   },
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "build": "rollup -c",
+    "build:types": "tsc --emitDeclarationOnly"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +46,7 @@
     "@storybook/node-logger": "^6.4.18",
     "@storybook/preset-create-react-app": "^4.0.0",
     "@storybook/react": "^6.4.18",
+    "@svgr/rollup": "^6.2.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -56,7 +57,24 @@
     "babel-preset-react-app": "^10.0.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-test-renderer": "^17.0.2",
+    "rollup": "^2.67.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "rollup-plugin-url": "^3.0.1",
     "typescript": "^4.5.5",
     "webpack": "^5.68.0"
-  }
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/ParkDongJo/kuix.git",
+  "license": "MIT",
+  "private": false
 }
