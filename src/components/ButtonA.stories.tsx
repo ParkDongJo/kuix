@@ -1,8 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from 'react';
 import ButtonA from './ButtonA';
-import { jsx, css } from '@emotion/react';
+import { jsx, css } from '@emotion/core';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
