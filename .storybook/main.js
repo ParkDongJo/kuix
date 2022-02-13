@@ -1,16 +1,32 @@
+const path = require("path");
+const toPath = (_path) => path.join(process.cwd(), _path);
+
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)",
-    "../src/components/**/*.stories.js"
+  stories: [
+    "../src/**/*.stories.(js|mdx|tsx)",
+    "../src/components/*.@(js|mdx|tsx)",
   ],
-  "addons": [
+  addons: [
+    "@storybook/addon-actions",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/preset-create-react-app"
+    "@storybook/addon-knobs/register",
   ],
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "webpack5"
-  }
-}
+
+  webpackFinal: async (config, { configType }) => {
+    config.module.rules.push({
+      test: /\.(ts|tsx)$/,
+      use: [
+        {
+          loader: require.resolve("babel-loader"),
+          options: {
+            presets: [["react-app", { flow: false, typescript: true }]],
+          },
+        },
+        require.resolve("react-docgen-typescript-loader"),
+      ],
+    });
+    config.resolve.extensions.push(".ts", ".tsx");
+    return config;
+  },
+};
